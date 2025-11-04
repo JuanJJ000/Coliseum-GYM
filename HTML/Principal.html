@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coliseum Gym • Inicio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <link rel="stylesheet" href="../CSS/styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+       <img class="logo" src="/assets/logo-coliseum.png" alt="Coliseum Gym" loading="lazy" />
+       <span class="brand-home">Inicio</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Principal">
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#productos" class="nav-link">Tienda</a>
+        <a href="#planes" class="nav-link">Planes</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-outline" href="/login" aria-label="Iniciar sesión">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="hero hero--center hero--image">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Entrená fuerte, <span class="highlight">vive</span><br><span class="highlight">mejor</span>.</h1>
+        <p>Equipo de alto rendimiento, entrenadores certificados y una comunidad que te impulsa.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#planes">Ver planes</a>
+          <a class="btn btn-ghost" href="#productos">Ver tienda</a>
+        </div>
+      </div>
+      <div class="hero-card"></div>
+    </div>
+  </section>
+
+  <!-- servicios -->
+  <section id="servicios" class="features">
+    <div class="container grid-3">
+      <article class="feature">
+        <div class="icon" aria-hidden="true"></div>
+        <h3>Fuerza &amp; Funcional</h3>
+        <p>Mancuernas, racks, barras olímpicas y zona funcional lista para romperla.</p>
+      </article>
+      <article class="feature">
+        <div class="icon" aria-hidden="true"></div>
+        <h3>Higiene &amp; Seguridad</h3>
+        <p>Espacios ventilados, limpieza constante y buena musica de ambiente.</p>
+      </article>
+      <article class="feature">
+        <div class="icon" aria-hidden="true"></div>
+        <h3>Clases guiadas</h3>
+        <p> Entranamiento intensivo, fuerza, movilidad y más. Cupos limitados para atención real.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos" class="section">
+    <div class="container">
+      <header class="section-head">
+        <h2>Nuestra <span class="highlight">Tienda</span> Fitness</h2>
+        <p>Suplementos, accesorios y equipamiento seleccionado por entrenadores.</p>
+      </header>
+
+      <div class="product-filters" role="group" aria-label="Categorías">
+        <button class="chip is-active" type="button">Todos</button>
+        <button class="chip" type="button">Suplementos</button>
+        <button class="chip" type="button">Accesorios</button>
+        <button class="chip" type="button">Equipamiento</button>
+      </div>
+
+      <div class="products-grid">
+        <!-- Suplementos -->
+        <article class="card product">
+          <div class="thumb thumb--supp" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Proteína Whey 2lb</h3>
+            <p class="muted">Vainilla</p>
+            <div class="price">$29.99</div>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+
+        <article class="card product">
+          <div class="thumb thumb--shake" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Batido saludable</h3>
+            <p class="muted">Listo para llevar</p>
+            <div class="price">$3.50</div>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+
+        <!-- Accesorios -->
+        <article class="card product">
+          <div class="thumb thumb--towel" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Toalla microfibra</h3>
+            <p class="muted">Secado rápido</p>
+            <div class="price">$6.90</div>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+
+        <article class="card product">
+          <div class="thumb thumb--bag" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Bolso deportivo</h3>
+            <p class="muted">Compartimento para calzado</p>
+            <div class="price">$22.00</div>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+
+        <!-- Equipamiento -->
+        <article class="card product">
+          <div class="thumb thumb--db" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Mancuernas (par)</h3>
+            <p class="muted">5–20 kg</p>
+            <div class="price">desde $19.00</div>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+
+        <article class="card product">
+          <div class="thumb thumb--band" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Bandas elásticas</h3>
+            <p class="muted">Set 3 resistencias</p>
+            <div class="price">$8.50</div>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Planes -->
+  <section id="planes" class="section section-dark">
+    <div class="container">
+      <header class="section-head">
+        <h2>Planes de <span class="highlight">Membresía</span></h2>
+        <p>Precios. Consigue descuento al ampliar tu plan.</p>
+      </header>
+
+      <div class="plans-grid">
+        <!-- Plan Básico -->
+        <article class="card plan">
+          <header class="plan-head">
+            <h3>Básico</h3>
+            <div class="tag">$10 / mes</div>
+          </header>
+          <ul class="plan-features">
+            <li>Acceso total a sala de pesas</li>
+            <li>1 evaluación física inicial</li>
+            <li>Uso de lockers</li>
+          </ul>
+          <div class="divider"></div>
+          <table class="price-table" aria-label="Descuentos por periodo - Básico">
+            <thead>
+              <tr><th>Periodo</th><th>Descuento</th><th>Total</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1 mes</td><td>0%</td><td>$10.00</td></tr>
+              <tr><td>3 meses</td><td>5%</td><td>$28.50</td></tr>
+              <tr><td>6 meses</td><td>10%</td><td>$54.00</td></tr>
+              <tr><td>12 meses</td><td>15%</td><td>$102.00</td></tr>
+            </tbody>
+          </table>
+          <button class="btn btn-primary" type="button">Elegir Básico</button>
+        </article>
+
+        <!-- Plan Plus -->
+        <article class="card plan plan--featured" aria-label="Plan recomendado">
+          <header class="plan-head">
+            <h3>Plus</h3>
+            <div class="tag">$20 / mes</div>
+          </header>
+          <ul class="plan-features">
+            <li>Todo lo del Básico</li>
+            <li>Clases grupales ilimitadas</li>
+            <li>Invitado 1 vez al mes</li>
+          </ul>
+          <div class="divider"></div>
+          <table class="price-table" aria-label="Descuentos por periodo - Plus">
+            <thead>
+              <tr><th>Periodo</th><th>Descuento</th><th>Total</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1 mes</td><td>0%</td><td>$20.00</td></tr>
+              <tr><td>3 meses</td><td>7%</td><td>$55.80</td></tr>
+              <tr><td>6 meses</td><td>12%</td><td>$105.60</td></tr>
+              <tr><td>12 meses</td><td>18%</td><td>$196.80</td></tr>
+            </tbody>
+          </table>
+          <button class="btn btn-secondary" type="button">Elegir Plus</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contacto" class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h4>Coliseum Gym</h4>
+        <p class="muted">Horario: Lun–Sáb 5:00–22:00 • Dom 7:00–14:00</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p class="muted">+505  8393 5786 • ColisemGym@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bar">© <span id="y">2025</span> Coliseum Gym. Todos los derechos reservados.</div>
+  </footer>
+</body>
+</html>
