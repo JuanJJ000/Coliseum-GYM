@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coliseum Gym • Tienda Fitness</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <link rel="stylesheet" href="../CSS/styles.css" />
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img class="logo" src="/assets/logo-coliseum.png" alt="Coliseum Gym" loading="lazy" />
+        <span class="brand-home">Inicio</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Principal">
+        <a href="/#servicios" class="nav-link">Servicios</a>
+        <a href="/tienda.html" class="nav-link is-active">Tienda</a>
+        <a href="/#planes" class="nav-link">Planes</a>
+        <a href="/#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-outline" href="/login" aria-label="Iniciar sesión">Login</a>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="hero hero--center hero--image" style="--hero-bg:url('/assets/hero-tienda.jpg')">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1><span class="highlight">Tienda Fitness</span></h1>
+        <p>Suplementos, accesorios y equipamiento para alcanzar tu máximo rendimiento.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#productos">Ver productos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <main id="productos" class="section">
+    <div class="container">
+      <header class="section-head">
+        <h2>Nuestros <span class="highlight">Productos</span></h2>
+        <p>Todo lo que necesitás para entrenar fuerte y recuperarte mejor.</p>
+      </header>
+
+      <div class="product-filters" role="group" aria-label="Categorías">
+        <button class="chip is-active" type="button">Todos</button>
+        <button class="chip" type="button">Suplementos</button>
+        <button class="chip" type="button">Accesorios</button>
+        <button class="chip" type="button">Equipamiento</button>
+      </div>
+
+      <div class="products-grid">
+        
+        <article class="card product">
+          <div class="thumb thumb--supp" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Proteína Whey 2lb</h3>
+            <p class="muted">Vainilla • $29.99</p>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+
+        <article class="card product">
+          <div class="thumb thumb--shake" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Batido saludable</h3>
+            <p class="muted">Listo para llevar • $3.50</p>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+
+
+        <article class="card product">
+          <div class="thumb thumb--towel" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Toalla microfibra</h3>
+            <p class="muted">Secado rápido • $6.90</p>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+
+        <article class="card product">
+          <div class="thumb thumb--bag" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Bolso deportivo</h3>
+            <p class="muted">Compartimento para calzado • $22.00</p>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+
+
+        <article class="card product">
+          <div class="thumb thumb--db" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Mancuernas (par)</h3>
+            <p class="muted">5–20 kg • desde $19.00</p>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+
+        <article class="card product">
+          <div class="thumb thumb--band" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Bandas elásticas</h3>
+            <p class="muted">Set 3 resistencias • $8.50</p>
+            <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h4>Coliseum Gym</h4>
+        <p class="muted">Horario: Lun–Sáb 5:00–22:00 • Dom 7:00–14:00</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p class="muted">+505 8393 5786 • ColisemGym@gmail.com</p>
+      </div>
+      <div>
+        <h4>Seguinos</h4>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="WhatsApp">Whatsapp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      © <span id="y">2025</span> Coliseum Gym. Todos los derechos reservados.
+    </div>
+  </footer>
+</body>
+</html>
