@@ -26,7 +26,7 @@
       </nav>
 
       <div class="header-cta">
-        <a class="btn btn-outline" href="Login.html" aria-label="Iniciar sesión">Login</a>
+        <a class="btn btn-outline" href="Auth/Login.html" aria-label="Iniciar sesión">Login</a>
       </div>
     </div>
   </header>
@@ -149,6 +149,55 @@
     </div>
   </section>
 
+  <div id="data-display" class="products-grid">
+    <p>hola</p>
+  </div>
+
+  <!-- Blog / Noticias -->
+  <section id="blog" class="section">
+    <div class="container">
+      <header class="section-head">
+        <h2>Últimas <span class="highlight">Noticias</span></h2>
+        <p>Entérate de novedades, consejos de entrenamiento y más.</p>
+      </header>
+
+      <div class="blog-grid">
+        <!-- Noticia 1 -->
+        <article class="card blog-post">
+          <div class="thumb thumb--blog1" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>5 consejos para mejorar tu fuerza</h3>
+            <p class="muted">Publicado: 10 Nov 2025</p>
+            <p>Descubre estrategias simples para maximizar tus entrenamientos de fuerza sin lesionarte.</p>
+            <a href="#" class="btn btn-secondary">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Noticia 2 -->
+        <article class="card blog-post">
+          <div class="thumb thumb--blog2" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Alimentos que potencian tu rendimiento</h3>
+            <p class="muted">Publicado: 15 Nov 2025</p>
+            <p>Incluye estos alimentos en tu dieta y notarás un cambio en tu energía y recuperación.</p>
+            <a href="#" class="btn btn-secondary">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Noticia 3 -->
+        <article class="card blog-post">
+          <div class="thumb thumb--blog3" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Nueva clase de HIIT en Coliseum Gym</h3>
+            <p class="muted">Publicado: 20 Nov 2025</p>
+            <p>Un entrenamiento intenso para quemar grasa y mejorar tu resistencia. Cupos limitados.</p>
+            <a href="#" class="btn btn-secondary">Leer más</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- Planes -->
   <section id="planes" class="section section-dark">
     <div class="container">
@@ -227,5 +276,8 @@
     </div>
     <div class="footer-bar">© <span id="y">2025</span> Coliseum Gym. Todos los derechos reservados.</div>
   </footer>
+
+  <script src="assets/JS/Public.js"></script>
+  <script>VerProductos()</script>
 </body>
 </html>

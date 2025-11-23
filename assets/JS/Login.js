@@ -123,3 +123,4 @@ async function onRegisterSubmit(e) {
     alert("Ocurrió un error al conectar con el servidor.");
   }
 }
+
