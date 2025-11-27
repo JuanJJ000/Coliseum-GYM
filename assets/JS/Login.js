@@ -68,7 +68,7 @@ async function onLoginSubmit(e) {
     localStorage.setItem("user", JSON.stringify(data.user));
 
     // Redirige después de login
-    window.location.href = "/HTML/Principal.html";
+    window.location.href = "/Principal.html";
   } catch (err) {
     console.error(err);
     alert("Ocurrió un error al conectar con el servidor.");
@@ -117,7 +117,7 @@ async function onRegisterSubmit(e) {
     localStorage.setItem("user", JSON.stringify(data.user));
 
     // Redirige después de registro
-    window.location.href = "/HTML/Principal.html";
+    window.location.href = "/Principal.html";
   } catch (err) {
     console.error(err);
     alert("Ocurrió un error al conectar con el servidor.");

@@ -13,8 +13,8 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/">
-       <img class="logo" src="/assets/logo-coliseum.png" alt="Coliseum Gym" loading="lazy" />
+      <a class="brand" href="/Principal.html">
+       <img class="logo" src="/assets\Img\logo-coliseum.png" alt="Coliseum Gym" loading="lazy" />
        <span class="brand-home">Inicio</span>
       </a>
 
@@ -25,8 +25,9 @@
         <a href="#contacto" class="nav-link">Contacto</a>
       </nav>
 
-      <div class="header-cta">
-        <a class="btn btn-outline" href="Auth/Login.html" aria-label="Iniciar sesión">Login</a>
+      <!-- Header: reemplazar el div.header-cta existente por este -->
+      <div id="header-cta" class="header-cta">
+      <!-- el contenido será renderizado por JS dependiendo del login -->
       </div>
     </div>
   </header>
@@ -278,6 +279,8 @@
   </footer>
 
   <script src="assets/JS/Public.js"></script>
+  <script src="assets/JS/auth.js"></script>
+  <script>initHeader()</script>
   <script>VerProductos()</script>
 </body>
 </html>
