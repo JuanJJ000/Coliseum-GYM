@@ -1,5 +1,5 @@
 // assets/JS/auth.js (versión con logs y fallback localStorage)
-const STRAPI_URL = "http://localhost:5500/api";
+const STRAPI_URL = "http://localhost:5500";
 
 function getJwt() { return localStorage.getItem("jwt"); }
 function clearAuth() {

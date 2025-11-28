@@ -11,7 +11,11 @@ async function initDashboard() {
     window.location.href = "/Principal.html";
     return;
   }
-
+  // detectar rol (ajustar según la estructura que devuelva Strapi)
+  let roleName = "";
+  if (user.role && user.role.name) roleName = user.role.name;
+  else if (user.user && user.user.role && user.user.role.name) roleName = user.user.role.name;
+  
   // menú base
   const sidebar = document.getElementById("dash-sidebar");
   const contentTitle = document.getElementById("dash-title");
@@ -26,13 +30,13 @@ async function initDashboard() {
   ];
 
   // Si admin/propietario añadimos items extra
-  const isAdmin = (roleName.toLowerCase() === "owner" || roleName.toLowerCase() === "propietario" || roleName.toLowerCase() === "admin");
+  const isAdmin = (roleName.toLowerCase() === "owner" || roleName.toLowerCase() === "Administrador" || roleName.toLowerCase() === "Usuario");
   if (isAdmin) {
     items.push(
       { id: "admin-products", label: "Productos (CRUD)", handler: showAdminProducts },
       { id: "admin-servicios", label: "Servicios (CRUD)", handler: showAdminServices },
       { id: "admin-clientes", label: "Clientes", handler: showAdminClients },
-      { id: "reportes", label: "Reportes", handler: showReports }
+      { id: "reportes", label: "Reportes", handler: showReports}
     );
   } else {
     // cliente obtiene progreso y carrito

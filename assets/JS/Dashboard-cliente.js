@@ -52,7 +52,6 @@ async function doLogout() {
 }
 
 /* ---- Secciones (ejemplos simples, expandibles) ---- */
-
 async function showHome(container) {
   container.innerHTML = `
     <p class="muted">Bienvenido al Dashboard.</p>
