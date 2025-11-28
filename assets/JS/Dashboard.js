@@ -1,6 +1,5 @@
 // assets/JS/Dashboard.js
 
-
 async function initDashboard() {
   // render header dinamico
   if (typeof initHeader === "function") await initHeader();
@@ -12,11 +11,6 @@ async function initDashboard() {
     window.location.href = "/Principal.html";
     return;
   }
-
-  // detectar rol (ajustar según la estructura que devuelva Strapi)
-  let roleName = "";
-  if (user.role && user.role.name) roleName = user.role.name;
-  else if (user.user && user.user.role && user.user.role.name) roleName = user.user.role.name;
 
   // menú base
   const sidebar = document.getElementById("dash-sidebar");
