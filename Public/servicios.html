@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Servicios • Coliseum Gym</title>
+  <link rel="stylesheet" href="/assets/CSS/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/Principal.html">
+        <img class="logo" src="/assets/Img/logo-coliseum.png" alt="Coliseum Gym" loading="lazy" />
+        <span class="brand-home">Inicio</span>
+      </a>
+
+      <!-- Header dinámico -->
+      <div id="header-cta" class="header-cta"></div>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <div class="container">
+      <h1>Servicios</h1>
+
+      <button id="btn-agregar" class="btn btn-primary">Agregar Servicio</button>
+
+      <!-- Formulario oculto -->
+      <form id="form-servicio" style="display:none; margin-top:1rem; border:1px solid #ccc; padding:1rem; border-radius:6px;">
+        <div>
+          <label for="titulo">Título:</label>
+          <input type="text" id="titulo" name="Titulo" required />
+        </div>
+
+        <div>
+          <label for="descripcion">Descripción:</label>
+          <textarea id="descripcion" name="Descripcion" required></textarea>
+        </div>
+
+        <div>
+          <label for="precio">Precio:</label>
+          <input type="number" id="precio" name="Precio" step="0.01" required />
+        </div>
+
+        <div>
+          <label for="cupos">Cupos Disponibles:</label>
+          <input type="number" id="cupos" name="Cupos_Disponibles" required />
+        </div>
+
+        <div>
+          <label for="fecha-hora">Fecha y Hora:</label>
+          <input type="datetime-local" id="fecha-hora" name="Fecha_Hora" required />
+        </div>
+
+        <div>
+          <label for="duracion">Duración:</label>
+          <input type="text" id="duracion" name="Duracion" required />
+        </div>
+
+        <div>
+          <label for="imagen">Imagen:</label>
+          <input type="file" id="imagen" name="Imagen" accept="image/*" />
+        </div>
+
+        <div>
+          <label for="estado">Estado:</label>
+          <select id="estado" name="Estado" required>
+            <option value="true">Activo</option>
+            <option value="false">Inactivo</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" id="cancel-form" class="btn btn-secondary">Cancelar</button>
+      </form>
+
+      <table id="servicios-table" border="1" cellspacing="0" cellpadding="6" style="margin-top:1rem;">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cupos</th>
+            <th>Fecha y Hora</th>
+            <th>Duración</th>
+            <th>Imagen</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="9">Cargando...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bar">© <span id="y">2025</span> Coliseum Gym.</div>
+  </footer>
+
+  <!-- Scripts obligatorios -->
+  <script src="/assets/JS/auth.js"></script>
+  <script src="/assets/JS/servicios.js"></script>
+
+  
+</body>
+</html>

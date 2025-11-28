@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reservas • Coliseum Gym</title>
+  <link rel="stylesheet" href="/assets/CSS/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/Principal.html">
+        <img class="logo" src="/assets/Img/logo-coliseum.png" alt="Coliseum Gym" loading="lazy" />
+        <span class="brand-home">Inicio</span>
+      </a>
+      <div id="header-cta" class="header-cta"></div>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <div class="container">
+      <h1>Reservas</h1>
+
+      <button id="btn-add-reserva" class="btn btn-primary">Agregar Reserva</button>
+
+      <!-- Formulario oculto -->
+      <form id="form-reserva" style="display:none; margin-top:1rem; border:1px solid #ccc; padding:1rem; border-radius:6px;">
+        <div>
+          <label for="usuario">Usuario:</label>
+          <select id="usuario" required></select>
+        </div>
+        <div>
+          <label for="servicio">Servicio:</label>
+          <select id="servicio" required></select>
+        </div>
+        <div>
+          <label for="estado">Estado:</label>
+          <select id="estado" required>
+            <option value="Activo">Activo</option>
+            <option value="Inactivo">Inactivo</option>
+          </select>
+        </div>
+        <div>
+          <label for="asistencia">Asistencia:</label>
+          <input type="checkbox" id="asistencia" />
+        </div>
+        <div>
+          <label for="observaciones">Observaciones:</label>
+          <textarea id="observaciones"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" id="cancel-form" class="btn btn-secondary">Cancelar</button>
+      </form>
+
+      <table id="reservas-table" border="1" cellspacing="0" cellpadding="6" style="margin-top:1rem;">
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Servicio</th>
+            <th>Estado</th>
+            <th>Asistencia</th>
+            <th>Observaciones</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="6">Cargando...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bar">© <span id="y">2025</span> Coliseum Gym.</div>
+  </footer>
+
+  <script src="/assets/JS/auth.js"></script>
+  <script src="/assets/JS/reservas.js"></script>
+</body>
+</html>
