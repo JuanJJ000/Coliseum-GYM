@@ -2,6 +2,7 @@
 
 const form = document.getElementById("form-producto");
 const btnAdd = document.getElementById("btn-add-producto");
+
 document.querySelectorAll("button[data-act='delete']").forEach(btn => {
   btn.addEventListener("click", async () => {
     if (!confirm("¿Deseas eliminar este producto?")) return;
@@ -133,49 +134,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // Submit del formulario
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const jwt = localStorage.getItem("jwt");
-
-    const nuevoProducto = {
-      data: {
-        Nombre: document.getElementById("nombre").value,
-        Descripcion: document.getElementById("descripcion").value,
-        Precio: parseFloat(document.getElementById("precio").value),
-        Stock: parseInt(document.getElementById("stock").value),
-        Estado: document.getElementById("estado").checked,
-        Imagen: document.getElementById("imagen").value || null,
-        categoria: parseInt(document.getElementById("categoria").value),
-        descuento: document.getElementById("descuento").value
-          ? parseInt(document.getElementById("descuento").value)
-          : null
-      }
-    };
-
-    try {
-      const res = await fetch(`${STRAPI_URL}/api/productos`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${jwt}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(nuevoProducto)
-      });
-
-      if (!res.ok) throw new Error("Error creando producto");
-
-      alert("Producto creado correctamente");
-      form.reset();
-      form.style.display = "none";
-      btnAdd.style.display = "block";
-
-      await loadProductos(); // refrescar tabla
-    } catch (err) {
-      console.error(err);
-      alert("No se pudo crear el producto");
-    }
   });
-});
 
 // Cargar selects de categorías y descuentos
 async function loadSelects() {
