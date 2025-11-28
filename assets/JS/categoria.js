@@ -87,3 +87,58 @@ async function loadCategorias() {
     tbody.innerHTML = "<tr><td colspan='4'>Error cargando categorías.</td></tr>";
   }
 }
+
+// -----------------------------
+// BOTÓN MOSTRAR FORMULARIO
+// -----------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const btnAdd = document.getElementById("btn-add-categoria");
+  const form = document.getElementById("cat-form");
+  const cancelBtn = document.getElementById("cat-cancel");
+  const saveBtn = document.getElementById("cat-save");
+
+  btnAdd.addEventListener("click", () => {
+    form.style.display = "block";
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    form.style.display = "none";
+  });
+
+  saveBtn.addEventListener("click", createCategoria);
+});
+
+// -----------------------------
+// CREAR CATEGORÍA
+// -----------------------------
+async function createCategoria() {
+  const jwt = localStorage.getItem("jwt");
+
+  const data = {
+    NombreCategoria: document.getElementById("cat-nombre").value,
+    Descripcion: document.getElementById("cat-desc").value,
+    Estado: document.getElementById("cat-estado").value === "true"
+  };
+
+  try {
+    const res = await fetch(`${STRAPI_URL}/api/categorias`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwt}`
+      },
+      body: JSON.stringify({ data })
+    });
+
+    if (!res.ok) throw new Error("Error al crear categoría");
+
+    alert("Categoría creada correctamente");
+
+    document.getElementById("cat-form").style.display = "none";
+    loadCategorias();
+
+  } catch (err) {
+    alert("No se pudo crear la categoría.");
+  }
+}
+

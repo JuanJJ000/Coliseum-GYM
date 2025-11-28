@@ -16,6 +16,32 @@
       <div id="header-cta" class="header-cta"></div>
     </div>
   </header>
+  <div class="cat-actions" style="margin: 1rem 0;">
+    <button id="btn-add-categoria" class="btn btn-primary">➕ Agregar Categoría</button>
+  </div>
+
+  <!-- FORMULARIO OCULTO -->
+  <div id="cat-form" class="card" style="display:none; padding:1rem; margin-bottom:1rem;">
+    <h2>Crear nueva categoría</h2>
+    
+    <label>Nombre:</label>
+    <input id="cat-nombre" type="text" class="input" placeholder="Nombre de la categoría">
+
+    <label>Descripción:</label>
+    <textarea id="cat-desc" class="input" placeholder="Descripción..."></textarea>
+
+    <label>Estado:</label>
+    <select id="cat-estado" class="input">
+      <option value="true">Activo</option>
+      <option value="false">Inactivo</option>
+    </select>
+
+    <div style="margin-top:1rem;">
+      <button id="cat-save" class="btn btn-primary">Guardar</button>
+      <button id="cat-cancel" class="btn btn-secondary">Cancelar</button>
+    </div>
+  </div>
+
 
   <main class="dashboard-main">
     <div class="container">
