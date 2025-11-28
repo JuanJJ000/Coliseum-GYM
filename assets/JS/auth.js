@@ -79,9 +79,9 @@ async function renderHeader() {
       return;
     }
     if (rol === "Desarrollador") {
-      window.location.href = "/Public/Dashboard.html";
-    } else {
       window.location.href = "Cliente/dashboard-cliente.html";
+    } else {
+      window.location.href = "/Public/Dashboard.html";
     }
   });
 
