@@ -37,7 +37,7 @@ async function initDashboard() {
     btn.addEventListener("click", async () => {
       contentTitle.textContent = it.label;
       contentBody.innerHTML = "<p>Cargando...</p>";
-      await it.handler(contentBody, user, isAdmin);
+      await it.handler(contentBody, user);
     });
     sidebar.appendChild(btn);
   });
@@ -55,7 +55,7 @@ async function doLogout() {
 async function showHome(container) {
   container.innerHTML = `
     <p class="muted">Bienvenido al Dashboard.</p>
-    <p>Accede a las opciones del menú a la izquierda. Tu rol: <strong>${(await fetchCurrentUser()).role?.name || 'error al encontrar el rol'}</strong></p>
+    <p>Accede a las opciones del menú a la izquierda.</p>
   `;
 }
 
