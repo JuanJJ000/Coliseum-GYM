@@ -13,7 +13,7 @@ btnRegistro.addEventListener('click', () => {
 // Sign Up = Registro
 // Sign In = Sesion
 
-const STRAPI_URL = "http://localhost:5500/api";
+const STRAPI_URL = "http://localhost:1337/api";
 
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector("form.Inicio-de-Sesion");

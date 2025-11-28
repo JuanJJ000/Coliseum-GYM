@@ -5,42 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dashboard • Coliseum Gym</title>
   <link rel="stylesheet" href="/assets/CSS/styles.css" />
-
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="/Principal.html">
-       <img class="logo" src="/assets/Img/logo-coliseum.png" alt="Coliseum Gym" loading="lazy" />
-       <span class="brand-home">Inicio</span>
+        <img class="logo" src="/assets/Img/logo-coliseum.png" alt="Coliseum Gym" loading="lazy" />
+        <span class="brand-home">Inicio</span>
       </a>
-      <nav class="main-nav" aria-label="Principal">
-        <!-- opcional links -->
-      </nav>
+      <nav class="main-nav" aria-label="Principal"></nav>
       <div id="header-cta" class="header-cta"></div>
     </div>
   </header>
 
   <main class="dashboard-main">
-   <div class="dashboard-layout">
-
-       <nav id="dash-sidebar" class="dashboard-sidebar">
-          <!-- generado por JS -->
-       </nav>
-
-        <section id="dash-content" class="dashboard-content">
-          <h2 id="dash-title">Cargando...</h2>
-          <div id="dash-body"><p>Esperando datos...</p></div>
-        </section>
-
+    <div class="dashboard-layout">
+      <nav id="dash-sidebar" class="dashboard-sidebar">
+        <button class="btn btn-ghost" onclick="location.href='/Dashboard/home.html'">Inicio</button>
+        <button class="btn btn-ghost" onclick="location.href='/Dashboard/profile.html'">Mi Perfil</button>
+        <button class="btn btn-ghost" onclick="location.href='/Dashboard/reservas.html'">Reservas</button>
+        <button class="btn btn-ghost" onclick="location.href='/Dashboard/progreso.html'">Progreso físico</button>
+        <button class="btn btn-ghost" onclick="location.href='/Dashboard/carrito.html'">Carrito</button>
+        <button class="btn btn-ghost" onclick="location.href='/Dashboard/admin-products.html'">Productos (CRUD)</button>
+        <button class="btn btn-ghost" onclick="location.href='/Dashboard/admin-servicios.html'">Servicios (CRUD)</button>
+        <button class="btn btn-ghost" onclick="location.href='clientes.html'">Clientes</button>
+        <button class="btn btn-ghost" onclick="location.href='/Dashboard/reportes.html'">Reportes</button>
+        <button class="btn btn-ghost" onclick="location.href='categoria.html'">Categoria</button>
+      </nav>
     </div>
   </main>
+
   <footer class="site-footer">
     <div class="footer-bar">© <span id="y">2025</span> Coliseum Gym.</div>
   </footer>
-  
+
   <script src="/assets/JS/auth.js"></script>
   <script src="/assets/JS/Dashboard.js"></script>
-  
 </body>
 </html>

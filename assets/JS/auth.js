@@ -1,5 +1,5 @@
-// assets/JS/auth.js (versión con logs y fallback localStorage)
-const STRAPI_URL = "http://localhost:5500";
+// assets/JS/auth.js
+const STRAPI_URL = "http://localhost:1337";
 
 function getJwt() { return localStorage.getItem("jwt"); }
 function clearAuth() {
@@ -10,13 +10,9 @@ function saveUser(user) {
   try { localStorage.setItem("user", JSON.stringify(user)); } catch(e) {}
 }
 
-// Intenta múltiples endpoints y maneja varias formas de respuesta
 async function fetchCurrentUser() {
   const jwt = getJwt();
-  if (!jwt) {
-    console.debug("[auth] no jwt in localStorage");
-    return null;
-  }
+  if (!jwt) return null;
 
   const urls = [
     `${STRAPI_URL}/api/users/me`,
@@ -26,34 +22,17 @@ async function fetchCurrentUser() {
 
   for (const url of urls) {
     try {
-      console.debug("[auth] fetching user from", url);
       const res = await fetch(url, { headers: { Authorization: `Bearer ${jwt}` }});
-      // 401/403: token inválido o sin permisos
-      if (res.status === 401 || res.status === 403) {
-        console.warn("[auth] fetch returned 401/403 -> token inválido o expirado");
-        return null;
-      }
-      if (!res.ok) {
-        console.debug("[auth] fetch not ok:", res.status, res.statusText);
-        continue;
-      }
+      if (res.status === 401 || res.status === 403) return null;
+      if (!res.ok) continue;
       const data = await res.json();
-      // Strapi v4 puede devolver { data: { id, attributes: {...} } } o bien el user directo.
       let user = null;
       if (data?.data) {
-        // caso v4: data.data o data.data.attributes
         user = data.data;
-        // si es {id, attributes}, convertir a forma usable:
-        if (user && user.attributes) {
-          user = { id: user.id, ...user.attributes };
-        }
-      } else if (data?.user) {
-        user = data.user;
-      } else {
-        user = data;
-      }
+        if (user && user.attributes) user = { id: user.id, ...user.attributes };
+      } else if (data?.user) user = data.user;
+      else user = data;
       saveUser(user);
-      console.debug("[auth] user fetched", user);
       return user;
     } catch (err) {
       console.error("[auth] fetchCurrentUser error for", url, err);
@@ -64,12 +43,8 @@ async function fetchCurrentUser() {
 
 async function renderHeader() {
   const container = document.getElementById("header-cta");
-  if (!container) {
-    console.warn("[auth] #header-cta not found");
-    return;
-  }
+  if (!container) return;
 
-  // Renderiza rápido desde localStorage para mejor UX mientras valida en background
   const stored = localStorage.getItem("user");
   if (stored) {
     try {
@@ -82,21 +57,13 @@ async function renderHeader() {
     container.innerHTML = `<a class="btn btn-outline" href="Auth/Login.html">Login</a>`;
   }
 
-  // Verificación con backend en background
   const user = await fetchCurrentUser();
   if (!user) {
-    // si la verificación falló y habíamos mostrado user local, revertir a Login
     container.innerHTML = `<a class="btn btn-outline" href="Auth/Login.html">Login</a>`;
     return;
   }
 
-  // extraer nombre y rol robustamente
   const username = user.username || user.name || user.email || "Usuario";
-  let role = "";
-  if (user.role && user.role.name) role = user.role.name;
-  else if (user.role) role = user.role;
-  else if (user.attributes && user.attributes.role) role = user.attributes.role;
-  role = (role || "").toString();
 
   container.innerHTML = `
     <div style="display:flex; align-items:center; gap:.6rem">
@@ -129,9 +96,6 @@ function quickLoggedHTML(user) {
 }
 
 async function initHeader() {
-  try {
-    await renderHeader();
-  } catch (e) {
-    console.error("[auth] initHeader error", e);
-  }
+  try { await renderHeader(); } 
+  catch (e) { console.error("[auth] initHeader error", e); }
 }
