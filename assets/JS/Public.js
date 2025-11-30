@@ -8,24 +8,30 @@ async function VerProductos() {
 
     const data = await response.json();
     const productos = data.data || data;
-
+    
     productos.forEach(item => {
 
       const producto = item.attributes ? item.attributes : item;
+      const imagenAttrs = producto.Imagen?.data?.attributes || producto.Imagen;
 
+      const imagenURL = imagenAttrs
+        ? `http://localhost:1337${imagenAttrs.url}`
+        : null;
+    
       const ProdDiv = document.createElement("div");
     //   ProdDiv.classList.add("products-grid");
 
       ProdDiv.innerHTML=`
 
         <article class="card product">
-            <div class="thumb" style="background:url('${producto.ImagenURL}') center/cover no-repeat"></div>
+            <div class="thumb" style="background:url('${imagenURL}') center/cover no-repeat"></div>
 
             <div class="card-body">
                 <h3>${producto.Nombre}</h3>
                 <p class="muted">${producto.Descripcion}</p>
                 <div class="price">$${producto.Precio}</div>
-                <button class="btn btn-secondary" type="button">Agregar</button>
+                <!-- <button class="btn btn-secondary" type="button"><a href="Auth/Login.html">Agregar</a></button> -->
+                <button class="btn btn-secondary" data-future="Agregar producto" type="button"><a>Agregar</a></button>
             </div>
         </article>
       `;

@@ -243,6 +243,29 @@ p{margin:.2rem 0 .8rem}
   .brand-home{ font-size: .95rem; }
 }
 
+.thumb--blog1 {
+  background-image: url("/assets/Img/blog1.jpg"); /* ruta a tu imagen */
+}
+.card.blog-post {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.thumb {
+  width: 100%;
+  height: 200px;
+  background-size: cover;      /* que llene el contenedor */
+  background-position: center; /* centrada */
+  background-repeat: no-repeat;
+}
+
+.thumb--blog2 {
+  background-image: url("/assets/Img/blog2.jpg");
+}
+
+.thumb--blog3 {
+  background-image: url("/assets/Img/blog3.jpg");
+}
 
 /* ============================================
    LAYOUT EXCLUSIVO DEL DASHBOARD
@@ -312,3 +335,4 @@ p{margin:.2rem 0 .8rem}
     min-height: auto;
   }
 }
+

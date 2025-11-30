@@ -2,7 +2,9 @@
 document.addEventListener("DOMContentLoaded", async () => {
   // render header dinámico
   if (typeof initHeader === "function") await initHeader();
+  
 
+  
   // validar sesión
   const user = await fetchCurrentUser();
   if (!user) {
@@ -10,6 +12,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.location.href = "/Principal.html";
     return;
   }
-
+  if (!esAdminSimple(user)) {
+  alert("Este Dashboard es solo para administradores.");
+  window.location.href = "Cliente/dashboard-cliente.html";
+  return;
+  }
   console.log("Usuario logueado:", user.username || user.email);
 });
+

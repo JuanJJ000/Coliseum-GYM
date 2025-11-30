@@ -37,7 +37,9 @@ document.querySelectorAll("button[data-act='edit']").forEach(btn => {
 
     // Mostrar formulario
     document.getElementById("form-producto").style.display = "block";
+    
 
+    
     // Rellenar campos
     document.getElementById("nombre").value = producto.Nombre;
     document.getElementById("descripcion").value = producto.Descripcion;
@@ -198,6 +200,15 @@ async function loadProductos() {
     tbody.innerHTML = productos
       .map(p => {
         // accesando directamente los campos planos y relaciones one-way
+        const imagenAttrs =
+          typeof p.Imagen === "string"
+            ? { url: p.Imagen }                               // por si guardas solo la ruta
+            : p.Imagen?.data?.attributes || p.Imagen || null;
+
+        const imagenURL = imagenAttrs?.url
+          ? `${STRAPI_URL}${imagenAttrs.url}`                // media de Strapi (ruta relativa)
+          : ""; 
+
         return `
         <tr>
           <td>${p.Nombre || ""}</td>
@@ -207,7 +218,14 @@ async function loadProductos() {
           <td>${p.categoria?.NombreCategoria || ""}</td>
           <td>${p.descuento?.Titulo || ""}</td>
           <td>${p.Estado ? "Activo" : "Inactivo"}</td>
-          <td>${p.Imagen ? `<img src="${p.Imagen}" width="50">` : ""}</td>
+          <td>
+            ${
+               imagenURL
+                  ? `<img src="${imagenURL}" alt="${p.Nombre || ""}"
+                       style="width:50px;height:50px;object-fit:cover;border-radius:4px;">`
+                  : ""
+            }
+          </td>
           <td>
             <button class="btn btn-outline" data-id="${p.id}" data-act="edit">Editar</button>
             <button class="btn btn-secondary" data-id="${p.id}" data-act="delete">Eliminar</button>
@@ -235,7 +253,16 @@ async function loadProductos() {
             document.getElementById("categoria").value = producto.categoria?.id || "";
             document.getElementById("descuento").value = producto.descuento?.id || "";
             document.getElementById("estado").checked = producto.Estado;
-            document.getElementById("imagen").value = producto.Imagen || "";
+            let imagenAttrsEdit =
+              typeof producto.Imagen === "string"
+                ? { url: producto.Imagen }
+                : producto.Imagen?.data?.attributes || producto.Imagen || null;
+
+            const imagenURLEdit = imagenAttrsEdit?.url
+              ? `${STRAPI_URL}${imagenAttrsEdit.url}`
+              : "";
+
+            document.getElementById("imagen").value = imagenURLEdit;
 
             form.dataset.editId = id; // activar modo edición
         });

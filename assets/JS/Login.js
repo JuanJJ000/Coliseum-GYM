@@ -15,6 +15,21 @@ btnRegistro.addEventListener('click', () => {
 
 const STRAPI_URL = "http://localhost:1337/api";
 
+
+function esAdminSimple(user) {
+  if (!user) return false;
+
+  const username = (user.username || "").toLowerCase();
+  const email = (user.email || "").toLowerCase();
+
+  return (
+    username === "megaadmin" ||
+    username === "elmo casin" ||
+    email === "developeradmin@gmail.com" ||
+    email === "elmocasin@gmail.com"
+  );
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.querySelector("form.Inicio-de-Sesion");
   const registerForm = document.querySelector("form.Registrarse");
@@ -44,36 +59,38 @@ async function onLoginSubmit(e) {
     const res = await fetch(`${STRAPI_URL}/auth/local`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         identifier: email,
-        password: password,
-      }),
+        password: password
+      })
     });
 
-    const data = await res.json();
-
     if (!res.ok) {
-      const msg =
-        data?.error?.message ||
-        data?.message?.[0]?.messages?.[0]?.message ||
-        "Error al iniciar sesión.";
+      const errData = await res.json().catch(() => null);
+      const msg = errData?.error?.message || "Credenciales incorrectas.";
       alert(msg);
       return;
     }
 
-    // Guardar token y usuario (opcional)
-    localStorage.setItem("jwt", data.jwt);
-    localStorage.setItem("user", JSON.stringify(data.user));
+    const data = await res.json();
+    const user = data.user;
 
+    // Guardar token y usuario
+    localStorage.setItem("jwt", data.jwt);
+    localStorage.setItem("user", JSON.stringify(user));
+
+   
     // Redirige después de login
     window.location.href = "/Principal.html";
+
   } catch (err) {
     console.error(err);
     alert("Ocurrió un error al conectar con el servidor.");
   }
 }
+
 
 async function onRegisterSubmit(e) {
   e.preventDefault();

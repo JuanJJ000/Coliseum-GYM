@@ -10,6 +10,20 @@ function saveUser(user) {
   try { localStorage.setItem("user", JSON.stringify(user)); } catch(e) {}
 }
 
+function esAdminSimple(user) {
+  if (!user) return false;
+
+  const username = (user.username || "").toLowerCase();
+  const email = (user.email || "").toLowerCase();
+
+  return (
+    username === "megaadmin" ||
+    username === "elmo casin" ||
+    email === "developeradmin@gmail.com" ||
+    email === "elmocasin@gmail.com"
+  );
+}
+
 async function fetchCurrentUser() {
   const jwt = getJwt();
   if (!jwt) return null;
@@ -58,9 +72,8 @@ async function renderHeader() {
     container.innerHTML = `<a class="btn btn-outline" href="/Auth/Login.html">Login</a>`;
     return;
   }
-
-  const username = user.username || user.name || user.email || "Usuario";
-  const rol = user.role?.name || "Usuario"; // rol del usuario desde Strapi
+    const username = user.username || user.name || user.email || "Usuario";
+  const esAdmin = esAdminSimple(user);
 
   container.innerHTML = `
     <div style="display:flex; align-items:center; gap:.6rem">
@@ -71,29 +84,40 @@ async function renderHeader() {
     </div>
   `;
 
-  // Redirección del Dashboard según rol
+  // Redirección del Dashboard según nombre o correo
   document.getElementById("dashboard-btn").addEventListener("click", () => {
     if (!getJwt()) {
       alert("Debes iniciar sesión primero");
       window.location.href = "/Auth/Login.html";
-      return;
+    return;
     }
-    if (rol === "Desarrollador") {
-      window.location.href = "Cliente/dashboard-cliente.html";
+
+    if (esAdmin) {
+      window.location.href = "/Public/Dashboard.html";           // admin
     } else {
-      window.location.href = "/Public/Dashboard.html";
+      window.location.href = "/Cliente/dashboard-cliente.html";   // cliente
     }
   });
 
-  // Logout
+// Logout
   document.getElementById("logout-btn").addEventListener("click", () => {
     clearAuth();
     window.location.href = "/Principal.html";
   });
 
-  // Carrito placeholder
+// Carrito placeholder
   document.getElementById("cart-btn").addEventListener("click", () => {
-    alert("Carrito (placeholder)");
+  alert("Carrito (placeholder)");
+  });
+
+  document.addEventListener("click", (event) => {
+    const el = event.target.closest("[data-future]");
+    if (!el) return;
+
+    event.preventDefault();
+
+    const label = el.dataset.future || "Esta función";
+    futureFeature(label);
   });
 }
 
@@ -112,4 +136,13 @@ function quickLoggedHTML(user) {
 async function initHeader() {
   try { await renderHeader(); } 
   catch (e) { console.error("[auth] initHeader error", e); }
+}
+
+function futureFeature(label) {
+  const base = "Función disponible en futuras versiones.";
+  if (label) {
+    alert(label + " — " + base);
+  } else {
+    alert(base);
+  }
 }

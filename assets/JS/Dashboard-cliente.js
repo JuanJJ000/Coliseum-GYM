@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // verificar rol (opcional, si hay roles)
-  if (user.role && user.role !== "cliente") {
-    alert("No tienes permisos para acceder a esta sección.");
-    window.location.href = "/dashboard.html";
+  const esAdmin = esAdminSimple(user);
+  if (esAdmin) {
+   alert("Este Dashboard es solo para clientes. Serás redirigido al Dashboard de administrador.");
+   window.location.href = "Public/Dashboard.html";
     return;
   }
 
